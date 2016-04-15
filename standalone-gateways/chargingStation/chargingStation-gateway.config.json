@@ -3,7 +3,7 @@
     
     "interval"               : 20000,
 
-    "myId"                   : "charginStation_200",
+    "gateway_unique_id"                   : "charginStation_200",
 
     "host"                   : "localhost",
 

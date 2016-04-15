@@ -3,7 +3,7 @@
 
     "interval"               : 400,
 
-    "myId"                   : "gateway_123",
+    "gateway_unique_id"      : "gateway_123",
 
     "host"                   : "localhost",
 

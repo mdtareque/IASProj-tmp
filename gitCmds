@@ -1,0 +1,28 @@
+git clone
+git branch <branch_name>      # just creates
+git checkout <branch_name>    # actually swithces
+
+do coding
+
+git add *
+git commit -m <msg>
+git push origin <branch_name>
+
+[Remote scene : Pull request created and merged on master]
+
+
+do coding
+git add *
+git commit -m <msg>
+git push origin <branch_name> --> give error
+
+# we need to bring remote master changes to local branch
+git checkout master
+git pull
+git checkout <branch_name>
+git merge origin/master
+
+git commit -m <msg>
+git push origin <branch_name>
+
+

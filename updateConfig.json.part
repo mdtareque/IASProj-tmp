@@ -1,0 +1,9 @@
+
+		{		
+			"Update" : "Config",
+            "filename" : gateway_type."-gateway.config.json"
+            "new_template" : {}
+		},
+		{		
+			"target_sensor_id" : "<sensor_id>",
+			"sensor_type" : "<string>",

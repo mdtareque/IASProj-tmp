@@ -8,7 +8,7 @@ var gatewayConfig = require('./chargingStation-gateway.config.json')
 // step 1: get config and template json
 var jsonmsg = require('./gateway-dl.template.json')
 
-console.log('Running car charging station gateway with id ' + gatewayConfig.myId)
+console.log('Running car charging station gateway with id ' + gatewayConfig.gateway_unique_id)
 
 /* step 2: fill the template with actual data 
 we have jsonmsg and gatewayConfig, need to create actual message
@@ -16,7 +16,7 @@ we have jsonmsg and gatewayConfig, need to create actual message
 function createSensorsMsg() {
     jsonmsg.header.number_body_items = gatewayConfig.sensor_metadata.length;
     jsonmsg.header.time_stamp = new Date().getTime()
-    jsonmsg.header.gateway_id = gatewayConfig.myId
+    jsonmsg.header.gateway_id = gatewayConfig.gateway_unique_id
     delete jsonmsg.header.piggyback_msg
     jsonmsg.body = gatewayConfig.sensor_metadata
 
@@ -61,4 +61,4 @@ function individualCarDataSender(id) {
 
 }
 
-setInterval(  function() {individualCarDataSender(gatewayConfig.myId);}, gatewayConfig.interval);
+setInterval(  function() {individualCarDataSender(gatewayConfig.gateway_unique_id);}, gatewayConfig.interval);

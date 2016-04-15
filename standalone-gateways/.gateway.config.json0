@@ -1,0 +1,50 @@
+{
+    "number_of_sensors": 3,
+    "myId" : "gateway_123",
+    "data_listener_endpoint": "http://localhost:3000",
+
+    "sensor_names" : ["temperature_sensor", "proximity_sensor", "charge_sensor"],
+
+    "sensor_metadata" : [
+		{
+			"sensor_id" : "app123_sen101",
+			"sensor_type" : "temperature_sensor",
+			"sensor_data" : [
+				{ "type": "float", "temp" : "<val>"}
+			]	
+        },
+		{
+			"sensor_id" : "app123_sen101",
+			"sensor_type" : "temperature_sensor",
+			"sensor_data" : [
+				{ "type": "float", "temp" : "<val>"}
+			]	
+        },
+
+        "proximity_sensor" : {
+           "front_left": {
+               "type": "float",
+               "value": "<val>" 
+           },
+           "front_right": {
+               "type": "float",
+               "value": "<val>" 
+           },
+           "back_left": {
+               "type": "float",
+               "value": "<val>" 
+           },
+           "back_right": {
+               "type": "float",
+               "value": "<val>" 
+           }
+        },
+
+        "charge_sensor": {
+           "charge": {
+               "type": "float",
+               "value": "<val>" 
+           }
+        }
+  ]
+}

@@ -1,0 +1,27 @@
+var fs = require('fs')
+var jsontemplate = require('./gateway-dl.template.json')
+jsontemplate.header.number_sensor_messages = 3;
+oneSensorData= jsontemplate.body[0]
+jsontemplate.body[2]=oneSensorData;
+
+console.log(oneSensorData)
+console.log(jsontemplate)
+var n=4
+var globalCarId;
+console.log('Running car ' + n +' gateway(s)')
+
+function individualCarDataSender(i) {
+    console.log(i);
+
+
+
+}
+
+setInterval(  function() {individualCarDataSender(0);}, 20000);
+//setInterval(  function() {individualCarDataSender(1);}, 2000);
+//setInterval(  function() {individualCarDataSender(2);}, 2000);
+//setInterval(  function() {individualCarDataSender(3);}, 2000);
+
+
+
+

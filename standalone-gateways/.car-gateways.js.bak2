@@ -1,0 +1,72 @@
+var fs = require('fs')
+var util = require('util')
+var helper = require('./helper')
+var gatewayConfig = require('./gateway.config.json')
+// step 1: get config and template json
+var jsonmsg = require('./gateway-dl.template.json')
+
+console.log('Running car gateway with id ' + gatewayConfig.myId)
+
+/* step 2: fill the template with actual data 
+you have jsonmsg and gatewayConfig
+*/
+function getRandomFloat(min, max){ 
+    min = typeof min !== 'undefined' ? min : 0;
+    max = typeof max !== 'undefined' ? max : 100;
+    return (Math.random() * (max - min) + min).toFixed(2); 
+}
+
+function getRandomInt(min, max){ 
+    min = typeof min !== 'undefined' ? min : 0;
+    max = typeof max !== 'undefined' ? max : 100;
+    return (Math.floor(Math.random() * (max - min)) + min).toFixed(2); 
+}
+
+jsonmsg.header.number_sensor_messages = gatewayConfig.sensor_names.length;
+jsonmsg.header.time_stamp = new Date().getTime()
+jsonmsg.header.gateway_id = gatewayConfig.myId
+delete jsonmsg.header.piggyback_msg
+var i=0;
+jsonmsg.body = gatewayConfig.sensor_metadata
+
+for (var sensors in jsonmsg.body) {
+    objects = jsonmsg.body[sensors].sensor_data
+    for (var sensor in objects) {
+        //console.log(objects[sensor])
+        //console.log(objects[sensor]["asdfsd"])
+        //console.log(objects[sensor]["type"])
+        switch(objects[sensor]["type"]) {
+            case "float" : objects[sensor]["value"] = getRandomFloat(objects[sensor]["min"], objects[sensor]["max"])
+            break;
+
+            case "int" : objects[sensor]["value"] = getRandomInt(objects[sensor]["min"], objects[sensor]["max"])
+            break
+        }
+        delete objects[sensor].min
+        delete objects[sensor].max
+    }
+
+}
+
+
+console.log(util.inspect(jsonmsg, false, null));
+
+
+/*
+
+/// step 3: send the post request 
+function individualCarDataSender(i) {
+    console.log(i);
+
+
+
+}
+
+setInterval(  function() {individualCarDataSender(0);}, 20000);
+//setInterval(  function() {individualCarDataSender(1);}, 2000);
+//setInterval(  function() {individualCarDataSender(2);}, 2000);
+//setInterval(  function() {individualCarDataSender(3);}, 2000);
+
+
+
+*/

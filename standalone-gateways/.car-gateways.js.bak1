@@ -1,0 +1,95 @@
+var fs = require('fs')
+var gatewayConfig = require('./gateway.config.json')
+// step 1: get config and template json
+//console.log(gatewayConfig)
+
+var jsonmsg = require('./gateway-dl.template.json')
+
+var sensors =  gatewayConfig.sensor_names
+console.log(sensors)
+
+
+function generateOneSensorData(ele) {
+    meta = eval( "gatewayConfig.sensor_metadata." + ele)
+    //console.log(ele + "\n" + meta)
+    console.log(meta)
+    for (var key in meta) {
+      if (meta.hasOwnProperty(key)) {
+          console.log(key + " -> " + meta[key]);
+          
+          types = 
+            for (var key in meta) {
+              if (meta.hasOwnProperty(key)) {
+
+
+
+        }
+    }
+
+
+
+}
+sensors.forEach(function(element, index, arr) {
+setInterval(function() {generateOneSensorData(element)}, 2000);
+})
+
+
+
+
+
+//oneSensorData= jsonmsg.body[0]
+//jsonmsg.body[2]=oneSensorData;
+
+//console.log(oneSensorData)
+//console.log(jsonmsg)
+var n=1
+var globalCarId = gatewayConfig.myId;
+console.log('Running car ' + n +' gateway(s) with id ' + globalCarId )
+
+
+
+
+/* step 2: fill the template with actual data 
+
+you have jsonmsg and gatewayConfig
+*/
+jsonmsg.header.number_sensor_messages = gatewayConfig.sensor_names.length;
+jsonmsg.header.time_stamp = new Date().getTime()
+jsonmsg.header.gateway_id = gatewayConfig.myId
+delete jsonmsg.piggyback_msg
+var i=0;
+function logArrayElements(element, index, array) {
+  console.log('a[' + index + '] = ' + element);
+  //console.log(eval("gatewayConfig.sensor_metadata." + element))
+
+    jsonmsg.body[i++] = eval("gatewayConfig.sensor_metadata." + element)
+    // we still need to exact structure
+
+  }
+sensors.forEach(logArrayElements) 
+
+
+
+
+
+
+
+
+
+
+/* step 3: send the post request */
+function individualCarDataSender(i) {
+    console.log(i);
+
+
+
+}
+
+setInterval(  function() {individualCarDataSender(0);}, 20000);
+//setInterval(  function() {individualCarDataSender(1);}, 2000);
+//setInterval(  function() {individualCarDataSender(2);}, 2000);
+//setInterval(  function() {individualCarDataSender(3);}, 2000);
+
+
+
+

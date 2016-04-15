@@ -1,0 +1,41 @@
+{
+    "number_of_slots"        : 3,
+    
+    "interval"               : 20000,
+
+    "myId"                   : "charginStation_200",
+
+    "host"                   : "localhost",
+
+    "port"                   : "3000",
+
+    "data_listener_endpoint" : "/api/v1.0/data_listener/gateway_data",
+
+    "sensor_metadata"         : [
+        {
+            "sensor_id"    : "app123_slot301",
+            "sensor_type"  : "charging_slot",
+            "sensor_data"  : [
+                { "name" : "vacant", "value" : "<boolean>", "type" : "boolean" },
+                { "name" : "nextFreeTime", "value" : "<datetime>", "type" : "string" }
+            ]
+        },
+        {
+            "sensor_id"    : "app123_slot302",
+            "sensor_type"  : "charging_slot",
+            "sensor_data"  : [
+                { "name" : "vacant", "value" : "<boolean>", "type" : "boolean" },
+                { "name" : "nextFreeTime", "value" : "<datetime>", "type" : "string" }
+            ]
+        },
+        {
+            "sensor_id"    : "app123_slot303",
+            "sensor_type"  : "charging_slot",
+            "sensor_data"  : [
+                { "name" : "vacant", "value" : "<boolean>", "type" : "boolean" },
+                { "name" : "nextFreeTime", "value" : "<datetime>", "type" : "string" }
+            ]
+        }
+
+    ]
+}

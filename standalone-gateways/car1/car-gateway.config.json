@@ -1,0 +1,33 @@
+{
+    "number_of_sensors"      : 2,
+
+    "interval"               : 400,
+
+    "myId"                   : "gateway_123",
+
+    "host"                   : "localhost",
+
+    "port"                   : "3000",
+
+    "data_listener_endpoint" : "/api/v1.0/data_listener/gateway_data",
+
+    "sensor_names"           : ["temperature_sensor", "charge_sensor"],
+
+    "sensor_metadata"        : [
+		{
+			"sensor_id"   : "app123_sen101",
+			"sensor_type" : "temperature_sensor",
+			"sensor_data" : [
+				{ "type": "float", "name": "temp", "value" : "<val>", "min" : 0, "max" : 48},
+				{ "type": "float", "name": "temp2", "value" : "<val>", "min" : 0, "max" : 48}
+			]
+        },
+		{
+			"sensor_id"   : "app123_sen102",
+			"sensor_type" : "charge_sensor",
+			"sensor_data" : [
+				{ "type": "float", "name": "charge", "value" : "<val>", "min" : 0, "max" : 100}
+			]
+        }
+  ]
+}

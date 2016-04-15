@@ -1,0 +1,27 @@
+{
+	"header": {
+		"number_body_items"      : "<int>",
+		"time_stamp"             : "<ts>",
+		"gateway_id"             : "<gid>",
+		"from"                   : "gateway",
+		"to"                     : "data_listener",
+		"piggyback_msg" : {
+			"empty"  : "<boolean>",
+			"prev"   : "<unique_msg_id>",
+			"error"  : "<boolean>",
+			"status" : "<value>"
+		}
+	},
+	"body": [
+		{		
+			"sensor_id"   : "<sensor_id>",
+			"sensor_type" : "<string>",
+			"sensor_data" : {
+				"property_1" : "<property_value>",
+				"property_2" : "<property_value>",
+				"property_n" : "<property_value>"
+			}		
+		}
+	]
+}
+
